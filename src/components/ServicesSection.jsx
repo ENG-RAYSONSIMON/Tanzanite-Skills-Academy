@@ -1,26 +1,5 @@
-import ImageSlider from "./ImageSlider";
-
-export default function ServicesSection() {
+export default function ServicesSection({ programs, Icon: ProgramIcon }) {
   return (
-    <section className="p-8 bg-gray-100 w-full flex flex-col md:flex-row gap-6 items-start">
-      <div className="md:w-1/2 w-full">
-        <ImageSlider />
-      </div>
-      <div className="md:w-1/2 w-full space-y-4">
-        <h2 className="text-2xl font-bold text-indigo-700">Huduma Zetu</h2>
-        <ul className="list-decimal list-inside space-y-1 text-gray-700">
-          <li>Maendeleo binafsi</li>
-          <li>Usimamizi wa Fedha binafsi</li>
-          <li>Maendeleo ya kitaaluma</li>
-          <li>Maendeleo ya biashara</li>
-          <li>Maendeleo ya teknolojia</li>
-        </ul>
-        <div className="pt-6">
-          <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">
-            Anza Masomo
-          </button>
-        </div>
-      </div>
-    </section>
+    <section className="programs section" id="programu"><div className="container"><div className="section-heading reveal"><div><p className="eyebrow">Programu zetu</p><h2>Ujuzi unaokuweka <em>hatua moja mbele.</em></h2></div><p>Chagua njia yako. Kila programu imeundwa kukupa maarifa yanayotumika na matokeo yanayoonekana.</p></div><div className="program-grid">{programs.map((program) => <article className="program-card reveal" key={program.title}><span className="program-number">{program.number}</span><div className="program-icon">{ProgramIcon({ name: program.icon })}</div><h3>{program.title}</h3><p>{program.text}</p><a href="#mawasiliano" aria-label={`Learn more about ${program.title}`}>Chunguza programu <span>→</span></a></article>)}</div></div><div className="skill-ticker" aria-label="Skills offered"><div>AI & Teknolojia <span>✦</span> Ujasiriamali <span>✦</span> Fedha <span>✦</span> Uongozi <span>✦</span> Mawasiliano <span>✦</span> Kazi & Taaluma <span>✦</span> AI & Teknolojia</div></div></section>
   );
 }
